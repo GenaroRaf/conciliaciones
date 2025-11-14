@@ -1,0 +1,70 @@
+[project]
+name = "conciliaciones"
+readme = "README.md"
+requires-python = ">=3.11"
+dynamic = ["version"]
+
+# Dependencias (producción)
+dependencies = [
+    "apache-airflow==2.10.2",
+    "aiocache>=0.12.3",
+    "openai",
+    "openpyxl==3.1.2",
+    "pybars3==0.9.7",
+    "sympy==1.13.3",
+    "xlrd",
+    "XlsxWriter==3.2.1",
+    "k-link",
+]
+
+# Dependencias opcionales para desarrollo/test
+[project.optional-dependencies]
+dev = [
+    "pylint-pytest==1.1.8",
+    "pytest==8.2.0",
+    "pytest-asyncio==0.23.6",
+    "ruff"
+]
+
+[tool.setuptools.dynamic]
+version = { file = ".version" }
+
+[tool.setuptools.packages.find]
+where = ["conciliaciones"]
+exclude = ["tmp*", "logs*", "tests*"]
+
+
+[tool.ruff.lint]
+select = [
+    "F", # Pyflakes
+    "W", # pycodestyle warnings
+    "UP", # pyupgrade
+    "B", # flake8-bugbear (Busca bugs)
+    "PD", # pandas-vet
+    "PL", # pylint
+    "ERA", # eradicate (Código muerto)
+    "C4", # flake8-comprehensions (Mejores comprehensions)
+    "I", # isort (Orden de imports)
+    "N", # pep8-naming
+    "S", # flake8-bandit (Seguridad)
+    "TID", # flake8-tidy-imports
+    "ANN", # flake8-annotations (¡La más importante para FastAPI!)
+    "SIM", # flake8-simplify (Simplifica if/else, bucles)
+    "RET", # flake8-return (Asegura returns consistentes)
+    "PIE", # flake8-pie (Elimina código innecesario)
+    "PTH", # flake8-use-pathlib (Fuerza a usar pathlib)
+]
+
+extend-select = [
+    "T201" # Prohíbe el uso de print (flake8-print)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ANN"]
+
+[tool.uv.sources]
+k-link = { git = "https://bitbucket.org/kuantikprojects/utilidades_conciliacion.git", rev = "v0.69.0" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,28 @@
+[MESSAGES CONTROL]
+
+disable=C0103,C0111,C0301,W0108,R0903,E0013,E0015,W1203,W0718
+
+[FORMAT]
+
+max-line-length=120
+
+[VARIABLES]
+
+dummy-variables-rgx=_|dummy
+
+[TYPECHECK]
+
+ignored-modules=argparse,numpy,matplotlib,sklearn
+
+[MASTER]
+init-hook='import os; import sys; sys.path.append(os.getcwd())'
+# Ignore all files under the .env folder.
+ignore-patterns=.env/*,env/*,tests/*
+# recursive=yes will search for other .pylintrc files in parent directories.
+recursive=yes
+# Load the pylint_pytest plugin.
+load-plugins=pylint_pytest
+
+# Allow docstrings to be multiline.
+multiline-docstring=1
+ 
