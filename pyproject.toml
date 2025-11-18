@@ -61,7 +61,8 @@ extend-select = [
 version = { file = ".version" }
 
 [tool.setuptools.packages.find]
-where = ["conciliaciones"]
+where = ["."]
+include = ["conciliaciones*"]
 exclude = ["tmp*", "logs*", "tests*"]
 
 [tool.uv.sources]
