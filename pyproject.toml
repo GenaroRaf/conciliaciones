@@ -62,7 +62,7 @@ version = { file = ".version" }
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["conciliaciones*"]
+include = ["conciliaciones"]
 exclude = ["tmp*", "logs*", "tests*"]
 
 [tool.uv.sources]
