@@ -26,18 +26,6 @@ dev = [
     "ruff"
 ]
 
-[tool.hatch.build.targets.sdist]
-include = ["conciliaciones", ".version", "README.md"]
-
-[tool.hatch.build.targets.wheel]
-packages = ["conciliaciones"]
-
-
-[tool.hatch.version]
-source = "regex"
-path = ".version"
-pattern = "(\\d+\\.\\d+\\.\\d+)"
-
 [tool.ruff]
 
 
@@ -68,6 +56,17 @@ extend-select = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["ANN"]
+
+[tool.hatch.version]
+source = "regex"
+path = ".version"
+pattern = "(\\d+\\.\\d+\\.\\d+)"
+
+[tool.hatch.build.targets.wheel]
+packages = ["conciliaciones"]
+
+[tool.hatch.build.targets.sdist]
+include = ["conciliaciones", ".version", "README.md"]
 
 [tool.uv.sources]
 k-link = { git = "https://bitbucket.org/kuantikprojects/utilidades_conciliacion.git", rev = "v0.69.0" }
