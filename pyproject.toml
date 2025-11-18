@@ -27,7 +27,9 @@ dev = [
 ]
 
 [tool.hatch.version]
+source = "regex"
 path = ".version"
+pattern = r"(\d+\.\d+\.\d+)"
 
 [tool.ruff]
 
