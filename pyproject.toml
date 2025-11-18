@@ -26,12 +26,10 @@ dev = [
     "ruff"
 ]
 
-[tool.setuptools.dynamic]
-version = { file = ".version" }
+[tool.hatch.version]
+path = ".version"
 
-[tool.setuptools.packages.find]
-where = ["conciliaciones"]
-exclude = ["tmp*", "logs*", "tests*"]
+[tool.ruff]
 
 
 [tool.ruff.lint]
