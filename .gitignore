@@ -27,3 +27,6 @@ pylint-report.txt
 
 # dag_generator
 dags/conciliaciones/data/
+
+# Lock files
+uv.lock
